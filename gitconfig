@@ -1,0 +1,9 @@
+[alias]
+        co = checkout
+        br = branch
+        ci = commit
+        st = status
+        unstage = reset
+        bra = branch -a
+[user]
+        name = Anton Khramov
