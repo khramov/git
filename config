@@ -5,5 +5,7 @@
         st = status
         unstage = reset
         bra = branch -a
+        pulldev = !git co dev && git pull
+        rbdev = !git co dev && git pull && "git co $1 && git rebase dev && git push -f #"
 [user]
         name = Anton Khramov
