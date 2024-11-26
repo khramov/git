@@ -1,13 +1,18 @@
 [alias]
-        co = checkout
-        br = branch
-        ci = commit
-        st = status
-        unstage = reset
-        bra = branch -a
-        amend = commit --amend
-        ampush = !git amend && git push -f
-        pulldev = !git co dev && git pull
-        rbdev = !git co dev && git pull && "git co $1 && git rebase dev && git push -f #"
+    co = "!echo 'git checkout' && git checkout"
+    br = "!echo 'git branch' && git branch"
+    ci = "!echo 'git commit' && git commit"
+    st = "!echo 'git status' && git status"
+    unstage = "!echo 'git reset' && git reset"
+    bra = "!echo 'Listing all branches with: git branch -a' && git branch -a"
+    rbmaster = "!echo 'Rebasing onto master with: git co master && git fetch -p && git pull && git co <branch> && git rebase master' && git co master && git fetch -p && git pull && echo 'Switching to branch $1...' && git co $1 && git rebase master"
+    amend = "!echo 'Amending the last commit with: git commit --amend' && git commit --amend"
+    ampush = "!echo 'Amending the last commit and force pushing with: git commit --amend && git push -f' && git amend && git push -f"
+    src = "!echo 'Getting the remote origin URL with: git remote get-url --all origin' && git remote get-url --all origin"
+    del = "!git branch -d $1 && !git push -d origin $1"
+    pp = "!echo 'Pulling with prune with: git pull -p' && git pull -p"
+    dft = "!echo 'Using difftool with: git difftool' && git difftool"
+    dlog = "!echo 'Viewing detailed log with difftool with: GIT_EXTERNAL_DIFF=difft git log -p --ext-diff' && f() { : git log ; GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+
 [user]
         name = Anton Khramov
